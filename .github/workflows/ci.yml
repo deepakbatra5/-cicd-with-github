@@ -1,17 +1,24 @@
-name: CI Pipeline
+name: CI - Build & Test
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  pull_request:
 
 jobs:
-  build:
+  ci:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Run a simple command
-        run: echo "CI pipeline running successfully!"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test

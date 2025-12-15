@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("Node.js CI/CD Pipeline Running 🚀 by deepak batra");
+  res.send("Node.js CI/CD Pipeline Running 🚀 by Nikhil Singhal");
 });
 
 const PORT = 3000;
